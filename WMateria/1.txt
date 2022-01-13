@@ -1,0 +1,51 @@
+TypeScript
+
+O navegador não entende TypeScript (entende java script). Dessa forma, tudo que for ts ficará no diretório app e será convertido para js (que ficara na pasta dist).
+Essa compilação será feita automaticamente.
+
+Passo 1
+
+ - Instalar o TypeScript
+
+****
+
+    npm install typescript@4.2.2 --save-dev
+
+****
+
+Passo 2
+
+ - Criar um arquivo que servirá como module da aplicação (app.ts - será como o index).
+ - Ir no html e indicar que é um módulo
+ - Criar um arquivo para o modelo na pasta de models
+ - Criar uma uma classe e estabelecer seus atributos (definir se são privados)
+ - Fazer um construtor (para que no momento em que o objeto for instanciado esses atributos sejam passados)
+ - Fazer getter de todos os atributos.
+
+Compilação TypeScript -> JavaScript
+
+Passo 1 
+
+ - Criar o arquivo 'tsconfig.json' na raiz do projeto
+ - Adicionar o compilerOption que passará o diretório onde será gravado os arquivos resultantes, a versão do ecmaScript que será convertido e a condição de não compilar quando houver erros no código.
+ - Adicionar o include qe passará em qual diretório ele irá pegar o código em ts
+
+****
+
+    {
+    "compilerOptions": {
+        "outDir": "dist/js", 
+        "target": "ES6",
+        "noEmitOnError": true
+    },
+    "include": ["app/**/*"]
+}
+
+****
+
+Passo 2 - Rodar o compilador
+
+ Em packege.json
+ - Adicionar em "scripts" o parâmetro compile que receberá o tsc
+ - Ou seja, toda vez que rodar o script o nodejs vai procurar o tsc na pasta modules e converter o cod
+ - Dessa forma, ele só vai fazer a compilação se o código estiver correto
